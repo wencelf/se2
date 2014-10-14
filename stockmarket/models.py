@@ -10,7 +10,7 @@ class Investor(User):
 	twitter = models.CharField(max_length=100, null=True)
 	imagen = models.ImageField(upload_to='photos',max_length=500, default='', null=True)
 	imgurl = models.URLField(max_length=500, default='', null=True)
-	#testfield = models.CharField(max_length=100, null=True)
+	testfield = models.CharField(max_length=100, null=True)
 	def __unicode__(self):
 		return str(self.pk)
         
