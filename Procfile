@@ -1,1 +1,1 @@
-web: gunicorn fabianstartup.wsgi
+web: gunicorn se2.wsgi
