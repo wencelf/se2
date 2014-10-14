@@ -59,7 +59,7 @@ WSGI_APPLICATION = 'se2.wsgi.application'
 
 #############################################
 #DATABASE settings for development enviroment
-'''
+
 DATABASES = {
     'default': {
         
@@ -95,7 +95,7 @@ DATABASES = {
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
 ########end of database seetings###############################################
-
+'''
 #############################################
 
 
