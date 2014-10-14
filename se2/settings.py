@@ -59,7 +59,7 @@ WSGI_APPLICATION = 'se2.wsgi.application'
 
 #############################################
 #DATABASE settings for development enviroment
-
+'''
 DATABASES = {
     'default': {
         
@@ -80,11 +80,11 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'd43nho3of0aa2j',                      # Or path to database file if using sqlite3.
+        'NAME': 'domt09aq65fps',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': 'zjfgykqqscjgkg',
-        'PASSWORD': 'ctNxu1WNeedrmTDPuyoPjU1xqs',
-        'HOST': 'ec2-23-21-94-137.compute-1.amazonaws.com',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'USER': 'mntqkjyypmxqvk',
+        'PASSWORD': 'l6tn7q2L6mktMBCwuG-FYqga0p',
+        'HOST': 'ec2-54-225-156-230.compute-1.amazonaws.com',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '5432',                      # Set to empty string for default.
         
     }
@@ -95,7 +95,7 @@ DATABASES = {
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
 ########end of database seetings###############################################
-'''
+
 #############################################
 
 
