@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Startup Essentials home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{{STATIC_URL}}dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}dist/grid.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <img src="{{STATIC_URL}}logo-se.png" alt="Smiley face" height="70" width="175">
+    <h3>Bienvenido {{u.first_name}} {{u.last_name}}</h3> 
+	<!--<img src="{{MEDIA_URL}}{{u.imagen}}">-->
+	<img src="{{u.imgurl}}">
+	<script>alert({{u.imgurl}})</script>
+	<br><br>
+    <p>Puedes invertir en las siguientes companias:</p>
+    
+      {% if startup_list %}
+          {% for startup in startup_list %}
+            <ul><a href="/startup/{{startup.id}}">{{startup.startupName}} - $SC {{startup.askingPrice}} </a> </ul>              
+          {% endfor %}
+      {% else %}
+            <p>No hay compañías operando en el mercado. Para crear tu compañía habla con los facilitadores de Startup Essentials</p>
+      {% endif %}
+   
+    <hr>
+    <p>Mi dinero disponible para invertir: $SC {{u.investor.cash}}</p>
+    <p><a href="/my-portafolio">Ver mi portafolio de inversiones</a></p>
+    <hr>
+    <p>Estás conectado como {{u.first_name}} {{u.last_name}} | <a href="/logout">Log out</a> </p>
+   </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

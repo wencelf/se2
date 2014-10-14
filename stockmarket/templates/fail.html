@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Transacción fallida</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/static/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/dist/grid.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">   
+    <h4>{{u.first_name}}, hemos tenido problemas para completar su transaccion</h4>
+    
+    <p>No tiene suficientes fondos para comprar {{shares}} accion(es) de {{s.startupName}}</p>
+   
+    <a href="/home">Volver a inicio</a> | <a href="/startup/{{s.id}}">Volver al perfil de {{s.startupName}}</a>
+  </div>
+</body>
+</html>

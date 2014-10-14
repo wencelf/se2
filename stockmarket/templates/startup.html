@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Startup Essentials home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/static/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/dist/grid.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <h3>{{s.startupName}}</h3>
+    
+    {% if owner %}
+      <p><a href="/startup/edit/{{s.id}}">Edit this company</a></p>              
+    {% endif %}
+    
+    <p>Valuation: $SC {{valuation}}</p>
+    <p>CEO: {{s.ceo.first_name}} {{s.ceo.last_name}}</p>
+    <p>Ultimo transaction de la accion fue a $SC {{s.last_price}}</p>
+    
+    <form method="post" action="/validate-purchase/">
+        {% csrf_token %}
+    <fieldset>
+      <legend>Compra acciones en {{s.startupName}}</legend>
+      <p>Precio de venta: ${{s.askingPrice}}</p>
+      <input type="hidden" name="startup" value="{{s.id}}">
+      <label>Numero de acciones a comprar</label>
+      <select name="shares">
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5</option>
+        <option value=6>6</option>
+        <option value=7>7</option>
+        <option value=8>8</option>
+        <option value=9>9</option>
+        <option value=10>10</option>
+      </select>
+      <br><br>
+      <button>Comprar</button>
+    </fieldset>
+    </form>
+    <hr>
+    <p><a href="/home">Volver a inicio</a></p>
+    <p>Estás conectado como {{u.first_name}} {{u.last_name}} | <a href="/logout">Log out</a> </p>
+  
+  </div>    
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  
+</body>
+</html>

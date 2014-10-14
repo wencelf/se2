@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit Startup - Startup Essentials</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/static/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/dist/grid.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="container"> 
+    <h4>{{u.first_name}}, esta editando {{s.startupName}}</h4>
+    
+    <h5>Si usted no es el CEO o CFO de esta startup no realice cambios en este sitio. Debe cerrar sesion, ya que probablemente esta no es su cuenta</h5>
+    
+    <p>Precio de la accion actual: {{s.askingPrice}}</p>
+    <form method="post" action="/validate-price/">
+        {% csrf_token %}
+    <fieldset>
+      <input type="hidden" name="startup" value="{{s.id}}">
+      <label>Nuevo precio de la accion</label>
+      <select name="new_price">
+        <option value=1>$SC 1</option>
+        <option value=2>$SC 2</option>
+        <option value=3>$SC 3</option>
+        <option value=4>$SC 4</option>
+        <option value=5>$SC 5</option>
+        <option value=6>$SC 6</option>
+        <option value=7>$SC 7</option>
+        <option value=8>$SC 8</option>
+        <option value=9>$SC 9</option>
+        <option value=10>$SC 10</option>
+      </select>
+      <br><br>
+      <button>Cambiar precio</button>
+    </fieldset>
+    </form>
+    <hr>
+    <p><a href="/home">Volver a inicio</a></p>
+    <p>Estás conectado como {{u.first_name}} {{u.last_name}} | <a href="/logout">Log out</a> </p>
+  
+  </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

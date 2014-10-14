@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>Startup Essentials - Investor Winners</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/static/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/dist/grid.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <h4>Ranking de Inversionistas </h4>
+ 
+      {% if j_list %}
+          {% for j in j_list %}              
+            <ul>{{forloop.counter}}) {{j.first_name}} {{j.last_name}}  -> SC$ {{j.portfolio}} </ul>              
+          {% endfor %}
+      {% else %}
+            <p>No hay inversionistas en la base de datos</p>
+      {% endif %}  
+    <hr>
+    <p><a href="/home">Volver a inicio</a></p>
+    
+    
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+
+  </div>
+</body>
+</html>

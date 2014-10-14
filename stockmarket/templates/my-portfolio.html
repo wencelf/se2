@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>Startup Essentials - My portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/static/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/dist/grid.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <h4>{{u.first_name}}, este es su portafolio</h4>
+    
+    <p>Valos total de portafolio = $SC {{portfolio_value}}</p>
+    <hr>
+    <p>Resumen de transacciones:</p>
+    
+      {% if transaction_list %}
+          {% for t in transaction_list %}
+            <ul>{{t.seller.startupName}} -> {{t.shares}} acciones </ul>              
+          {% endfor %}
+      {% else %}
+            <p>Usted no ha realizado ninguna inversion</p>
+      {% endif %}  
+    
+    <hr>
+    <p><a href="/home">Volver a inicio</a></p>
+    <p>Estás conectado como {{u.first_name}} {{u.last_name}} | <a href="/logout">Log out</a> </p>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+
+  </div>
+</body>
+</html>
