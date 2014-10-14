@@ -76,7 +76,21 @@ DATABASES = {
 '''
 ###########################################
 #DATABASE settings for production enviroment
-
+##Develop
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'domt09aq65fps',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': 'mntqkjyypmxqvk',
+        'PASSWORD': 'l6tn7q2L6mktMBCwuG-FYqga0p',
+        'HOST': 'ec2-54-225-156-230.compute-1.amazonaws.com',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '5432',                      # Set to empty string for default.
+        
+    }
+}
+##Seblatam2
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
@@ -89,7 +103,7 @@ DATABASES = {
         
     }
 }
-
+'''
 ######Comment this for development enviroment############
 #Parse database configuration from $DATABASE_URL
 import dj_database_url
