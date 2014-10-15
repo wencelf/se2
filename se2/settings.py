@@ -77,6 +77,7 @@ DATABASES = {
 ###########################################
 #DATABASE settings for production enviroment
 ##Develop
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
@@ -103,7 +104,7 @@ DATABASES = {
         
     }
 }
-'''
+
 ######Comment this for development enviroment############
 #Parse database configuration from $DATABASE_URL
 import dj_database_url
