@@ -13,8 +13,6 @@
     <img src="{{STATIC_URL}}logo-se.png" alt="Smiley face" height="70" width="175">
     <h3>Bienvenido {{u.first_name}} {{u.last_name}}</h3> 
 	<!--<img src="{{MEDIA_URL}}{{u.imagen}}">-->
-	<img src="{{u.imgurl}}">
-	<script>alert({{u.imgurl}})</script>
 	<br><br>
     <p>Puedes invertir en las siguientes companias:</p>
     
@@ -30,7 +28,7 @@
     <p>Mi dinero disponible para invertir: $SC {{u.investor.cash}}</p>
     <p><a href="/my-portafolio">Ver mi portafolio de inversiones</a></p>
     <hr>
-    <p>Estás conectado como {{u.first_name}} {{u.last_name}} | <a href="/logout">Log out</a> </p>
+    <p>Estás conectado como {{u.first_name}} {{u.last_name}} <img src="{{u.imgurl}}" alt="Profile picture" width="50"> | <a href="/logout">Log out</a> </p>
    </div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://code.jquery.com/jquery.js"></script>
