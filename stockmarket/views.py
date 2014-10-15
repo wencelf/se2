@@ -39,6 +39,7 @@ def fblogin(request):
 		#	usuario.imagen.save('foto'+usuario.username+'.jpg', File(img_temp))
 		#if usuario.imgurl == '':
 		usuario.imgurl=this_img
+		usuario.save()
 		u = authenticate(username=usuario.username)
 		login(request, u)
 		request.session['member_id'] = u.id
