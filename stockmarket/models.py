@@ -10,7 +10,6 @@ class Investor(User):
 	twitter = models.CharField(max_length=100, null=True)
 	imagen = models.ImageField(upload_to='photos',max_length=500, default='', null=True)
 	imgurl = models.URLField(max_length=500, default='', null=True)
-	testfield = models.CharField(max_length=100, null=True)
 	def __unicode__(self):
 		return str(self.email)
         
@@ -19,7 +18,6 @@ class Startup(models.Model):
 	ceo = models.ForeignKey(Investor)
 	askingPrice = models.PositiveIntegerField(null=True, default=1)
 	last_price = models.PositiveIntegerField(null=True, default=1)
-	minPrice = models.PositiveIntegerField(null=True, default=1)
 	def __unicode__(self):
 	    return str(self.startupName)
     

@@ -8,7 +8,7 @@
     <link href="/static/dist/grid.css" rel="stylesheet">
 	<script>
 	function validateprice(){
-		var a={{s.minPrice}};
+		var a={{s.last_price}};
 		var b=document.forms["startup"]["new_price"].value;
 		if(b<a){
 			alert("El valor de la accion debe ser mayor o igual al valor de venta de la ultima accion)");

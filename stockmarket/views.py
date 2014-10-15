@@ -133,7 +133,7 @@ def startup(request, startup_id):
             outstanding_shares=0
             for transaction in transaction_list:
                 outstanding_shares += transaction.shares     
-        valuation = last_price*outstanding_shares
+        valuation = s.askingPrice*outstanding_shares
         #following lines check if the current user is the ceo of the company. If so, the site will allow special persimissions
         if u.id == s.ceo.id:
             owner=1
@@ -170,16 +170,16 @@ def validate_purchase(request):
         print "Resultado de multiplicacion"
         print s.askingPrice*shares
         if u.investor.cash >= s.askingPrice*shares:
-            u.investor.cash = u.investor.cash - s.askingPrice*shares
-            u.investor.save() 
-            b=Bank(buyer_id = u.id, seller_id = s.id, shares=shares, price = s.askingPrice )
-            b.save()
-            s.last_price=s.askingPrice
-            s.save()
-            return render_to_response('success.html', 
-                {'u':u,'s':s, 'shares': shares},
-                context_instance=RequestContext(request)
-                )
+			u.investor.cash = u.investor.cash - s.askingPrice*shares
+			u.investor.save() 
+			b=Bank(buyer_id = u.id, seller_id = s.id, shares=shares, price = s.askingPrice )
+			b.save()
+			s.last_price=s.askingPrice
+			s.save()
+			return render_to_response('success.html', 
+				{'u':u,'s':s, 'shares': shares},
+				context_instance=RequestContext(request)
+				)
             #return HttpResponseRedirect('/success')
         else:
             #return HttpResponse("You don't have enough money to buy this stock. Sorry")
