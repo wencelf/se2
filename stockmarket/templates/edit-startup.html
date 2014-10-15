@@ -6,7 +6,17 @@
     <!-- Bootstrap -->
     <link href="/static/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/dist/grid.css" rel="stylesheet">
-
+	<script>
+	function validateprice(){
+		var a={{s.minPrice}};
+		var b=document.forms["startup"]["new_price"].value;
+		if(b<a){
+			alert("El valor de la accion debe ser mayor o igual al valor de venta de la ultima accion)");
+		}else{
+			document.getElementById("startup").submit();
+		}
+	}
+	</script>
 </head>
 
 <body>
@@ -16,7 +26,7 @@
     <h5>Si usted no es el CEO o CFO de esta startup no realice cambios en este sitio. Debe cerrar sesion, ya que probablemente esta no es su cuenta</h5>
     
     <p>Precio de la accion actual: {{s.askingPrice}}</p>
-    <form method="post" action="/validate-price/">
+    <form method="post" action="/validate-price/" id="startup" name="startup">
         {% csrf_token %}
     <fieldset>
       <input type="hidden" name="startup" value="{{s.id}}">
@@ -34,13 +44,14 @@
         <option value=10>$SC 10</option>
       </select>
       <br><br>
-      <button>Cambiar precio</button>
+      <!--<button>Cambiar precio</button>-->
     </fieldset>
     </form>
-    <hr>
-    <p><a href="/home">Volver a inicio</a></p>
+    <button type="button" onclick="validateprice()">Cambiar precio</button>
+	<hr>
+	<p><a href="/home">Volver a inicio</a></p>
     <p>Estás conectado como {{u.first_name}} {{u.last_name}} <img src="{{u.imgurl}}" alt="Profile picture" width="50"> | <a href="/logout">Log out</a> </p>
-  
+	
   </div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://code.jquery.com/jquery.js"></script>

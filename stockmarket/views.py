@@ -210,12 +210,12 @@ def edit_startup(request, startup_id):
 
 def validate_price(request):
     if request.method == 'POST': #if form has been submitted..
-        new_price = (request.POST['new_price'])
-        s=Startup.objects.get(id=request.POST['startup'])
-        s.askingPrice = new_price
-        s.save()
-        return HttpResponseRedirect('/home')
-           
+		new_price = (request.POST['new_price'])
+		s=Startup.objects.get(id=request.POST['startup'])
+		s.askingPrice = new_price
+		s.save()
+		return HttpResponseRedirect('/home')
+		
     else:
         return HttpResponseRedirect('/')
     
